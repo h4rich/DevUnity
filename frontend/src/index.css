@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .markdown {
+    @apply max-w-full prose dark:prose-p:text-neutral-200 dark:prose-ol:text-neutral-200 dark:prose-ul:text-neutral-400 dark:prose-strong:text-white dark:prose-headings:text-white prose-headings:text-neutral-800 prose-h1:text-neutral-700 prose-h2:text-neutral-800 prose-p:text-neutral-500 prose-ul:text-neutral-500 prose-ol:text-neutral-500;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Jost", sans-serif;
+}
+body {
+  min-height: 100vh;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/*fixing cursor position*/
+.ace_content * {
+  font-family: monospace;
+  font-variant-ligatures: no-common-ligatures;
+}
+
+/* breathing skeleton */
+.skeleton {
+  background-color: #27272a;
+  transition: 2s;
+  animation: breathing 1.5s linear infinite;
+  margin: 0.5rem 0;
+}
+@keyframes breathing {
+  0%,
+  100% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 50%;
+  }
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/*changing selection color*/
+::selection {
+  background-color: #a855f7;
+  color: white;
+}
+
+/* Markdown Start */
+.markdown a,
+code {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+  border-radius: 4px;
+  padding: 0.2rem;
+  color: #451669 !important;
+}
+.markdown pre {
+  display: grid;
+  width: 100%;
+}
+
+.markdown pre code {
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+  color: inherit !important;
+}
+/* Markdown End */
+/* terminal */
+#terminal {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 15px;
+}
+
+#terminal pre {
+  overflow-x: auto;
+}
